@@ -1,0 +1,14 @@
+Roadmap for updates/patches
+
+@TODO
+Enable queing of avatar creation.
+Currently all of the users in "members.xml" are processed in one go.
+When the list of users gets longer than a 100 users the script is running longer than the average time limit for php.
+This occurs, in general, on servers with lesser resources and results in errors and even taking out the server.
+
+@TODO
+Add (SQL)database support
+Instead of loading users from an xml, enable the user to enable database support and make MCAvatar get and store filepaths, users and settings from a (SQL)database.
+
+@TODO
+If database support is enabled, enable the script to cache the avatarpage into the database.

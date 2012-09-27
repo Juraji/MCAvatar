@@ -1,0 +1,46 @@
+/* Style the blocks in wich useravatars and names are displayed */
+.server-member {
+  display:block;
+  float:left;
+  width:100px;
+  height:120px;
+  text-align:center;
+}
+
+/* Style the avatar itself */
+ .membertile{
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 64px;
+  height: 64px;
+}
+
+/* Style the overal member-list-title block */
+.member-list-title {
+  display:block;
+  clear:both;
+  font-weight: bold;
+}
+
+/* style the notice on the bottom of the avatarpage */
+.members-notice {
+  display:block;
+  clear: both;
+  font-size: 10px;
+  color: #888;
+}
+
+/* Style the "admins" title */
+.member-list-title.admins {
+  color: rgb(85, 85, 255);
+}
+
+/* Style the "moderators" title */
+.member-list-title.moderators {
+  color: rgb(0, 255, 255);
+}
+
+/* Style the "members" title */
+.member-list-title.members {
+  color: rgb(0, 128, 0);
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcavatar>
+  <ugroups>
+    <ugroup>admin</ugroup>
+    <ugroup>moderator</ugroup>
+    <ugroup>member</ugroup>
+  </ugroups>
+  <members>
+    <admin>USERNAME</admin>
+    
+    <moderator>USERNAME</moderator>
+    <moderator>USERNAME2</moderator>
+    
+    <member>USERNAME</member>
+    <member>USERNAME2</member>
+  </members>
+</mcavatar>
