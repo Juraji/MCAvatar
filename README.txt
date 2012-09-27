@@ -2,7 +2,7 @@
  |  \/  |/ ___|  / \__   ____ _| |_ __ _ _ __ 
  | |\/| | |     / _ \ \ / / _` | __/ _` | '__|
  | |  | | |___ / ___ \ V / (_| | || (_| | |   
- |_|  |_|\____/_/   \_\_/ \__,_|\__\__,_|_| 0.1a by Robin Kesseler
+ |_|  |_|\____/_/   \_\_/ \__,_|\__\__,_|_| by Robin Kesseler
 
 /* Developer Notice ***********************************************************************************/
 MCAvatar is free for use to all, though I call on your courtesy not to redistribute MCAvatar under a
@@ -10,6 +10,10 @@ different name.
 
 The MCAvatar class has PHPDOC descriptions for advanced IDE's
 
+Any problems with running the code?
+send an Email to github@juraji.nl and I'll try to sort it out.
+
+Bug reports are always welcome via the bugtracker at https://github.com/Juraji/MCAvatar/issues.
 
 /* Overview *******************************************************************************************/
 MCAvatar is an independent php-class capable of creating and showing MineCraft User Avatars.
@@ -25,9 +29,9 @@ PHP modules:
   - GD for php
   - DOMXML
 
-Folders (with read/write permissions for Apaache and PHP):
+Folders (with read/write permissions for Apache and PHP):
   - A temporary folder for image conversions.
-  - An avatar folder in wich the script will save the finished avatars.
+  - An avatar folder in witch the script will save the finished avatars.
 
 
 /* Defining Members ***********************************************************************************/
