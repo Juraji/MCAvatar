@@ -60,6 +60,12 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -374,6 +380,127 @@ webpage. Empty usergroups will be ommited.</p>
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="_mca_get_users" id="__mca_get_users">
+
+		<td class="attributes"><code>
+			 private 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__mca_get_users">#</a>
+		<code><a href="source-class-MCAvatar.html#143-161" title="Go to source code">_mca_get_users</a>( )</code>
+
+		<div class="description short">
+			
+<p>returns an array with all users from the members.xml in respect to their
+membergroup.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>returns an array with all users from the members.xml in respect to their
+membergroup.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_mca_extract_userskin" id="__mca_extract_userskin">
+
+		<td class="attributes"><code>
+			 private 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__mca_extract_userskin">#</a>
+		<code><a href="source-class-MCAvatar.html#163-220" title="Go to source code">_mca_extract_userskin</a>( <span>mixed <var>$username</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Gets the userskin from the minecraft servers and processes them into images
+for their respective faces, the settings for the output image can be changed by
+calling mca_set_image_settings().</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the userskin from the minecraft servers and processes them into images
+for their respective faces, the settings for the output image can be changed by
+calling mca_set_image_settings().</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$username</var></dt>
+					<dd><code>mixed</code><br>$username (string) The username for wich to create the avatar. Take notice, this
+variable is case-sensitive!!!</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_mca_add_message" id="__mca_add_message">
+
+		<td class="attributes"><code>
+			 private 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__mca_add_message">#</a>
+		<code><a href="source-class-MCAvatar.html#222-233" title="Go to source code">_mca_add_message</a>( <span>mixed <var>$messagestring</var></span>, <span>mixed <var>$weight</var> = <span class="php-quote">'notice'</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds code-generated messages to the "$messages" variable respective to their
+weight.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds code-generated messages to the "$messages" variable respective to their
+weight.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$messagestring</var></dt>
+					<dd><code>mixed</code><br>$messagestring (string) message.</dd>
+					<dt><var>$weight</var></dt>
+					<dd><code>mixed</code><br>$weight (string) Severity of the message. Possible options are "notice",
+"warning" and "error".</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	</table>
 
 
@@ -387,6 +514,262 @@ webpage. Empty usergroups will be ommited.</p>
 
 
 
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="membersxml" id="$membersxml">
+		<td class="attributes"><code>
+			private  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#11" title="Go to source code"><var>$membersxml</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$membersxml" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="pagenotice" id="$pagenotice">
+		<td class="attributes"><code>
+			private  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#12" title="Go to source code"><var>$pagenotice</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$pagenotice" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="tmppath" id="$tmppath">
+		<td class="attributes"><code>
+			private  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#13" title="Go to source code"><var>$tmppath</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$tmppath" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="avatarimagepath" id="$avatarimagepath">
+		<td class="attributes"><code>
+			private  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#14" title="Go to source code"><var>$avatarimagepath</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$avatarimagepath" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="messages" id="$messages">
+		<td class="attributes"><code>
+			private  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#15" title="Go to source code"><var>$messages</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$messages" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="left" id="$left">
+		<td class="attributes"><code>
+			private  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#17" title="Go to source code"><var>$left</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">8</span></code></td>
+		<td class="description"><div>
+			<a href="#$left" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="top" id="$top">
+		<td class="attributes"><code>
+			private  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#18" title="Go to source code"><var>$top</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">8</span></code></td>
+		<td class="description"><div>
+			<a href="#$top" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="crop_width" id="$crop_width">
+		<td class="attributes"><code>
+			private  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#19" title="Go to source code"><var>$crop_width</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">8</span></code></td>
+		<td class="description"><div>
+			<a href="#$crop_width" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="crop_height" id="$crop_height">
+		<td class="attributes"><code>
+			private  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#20" title="Go to source code"><var>$crop_height</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">8</span></code></td>
+		<td class="description"><div>
+			<a href="#$crop_height" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="new_width" id="$new_width">
+		<td class="attributes"><code>
+			private  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#21" title="Go to source code"><var>$new_width</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">64</span></code></td>
+		<td class="description"><div>
+			<a href="#$new_width" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="new_height" id="$new_height">
+		<td class="attributes"><code>
+			private  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-MCAvatar.html#22" title="Go to source code"><var>$new_height</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">64</span></code></td>
+		<td class="description"><div>
+			<a href="#$new_height" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
 
 
 
