@@ -69,7 +69,7 @@ class MCAvatar {
   }
 
   /**
-   * Update avatars with the minecraft servers.
+   * Update avatars, from the specified XML-file, with the minecraft servers.
    * This process takes a while, so it is recommended not to put this into the page builds
    */
   public function mca_update_avatars() {
