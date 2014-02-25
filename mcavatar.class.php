@@ -46,10 +46,6 @@ class MCAvatar {
   /**
    * Change output image settings
    * 
-   * @param $outputwidth
-   *  (int) Width of the output image. Defaults to 64 pixels.
-   * @param $outputheight
-   *  (int) Height of the output image. Defaults to 64 pixels.
    * @param $cropoffsetleft
    *   (int) crop offset from the left. Defaults to 8 pixels.
    * @param $cropoffsettop
@@ -58,8 +54,12 @@ class MCAvatar {
    *  (int) Width to crop. Defaults to 8 pixels.
    * @param $cropheight
    *  (int) Height to crop. Defaults to 8 pixels.
+   * @param $outputwidth
+   *  (int) Width of the output image. Defaults to 64 pixels.
+   * @param $outputheight
+   *  (int) Height of the output image. Defaults to 64 pixels.
    */
-  public function mca_set_image_settings($outputwidth = 64, $outputheight = 64, $cropoffsetleft = 8, $cropoffsettop = 8, $cropwidth = 8, $cropheight = 8) {
+  public function mca_set_image_settings($cropoffsetleft = 8, $cropoffsettop = 8, $cropwidth = 8, $cropheight = 8, $outputwidth = 64, $outputheight = 64) {
     $this->top = $cropoffsettop;
     $this->left = $cropoffsetleft;
     $this->crop_width = $cropwidth;
@@ -69,7 +69,7 @@ class MCAvatar {
   }
 
   /**
-   * Update avatars, from the specified XML-file, with the minecraft servers.
+   * Update avatars with the minecraft servers.
    * This process takes a while, so it is recommended not to put this into the page builds
    */
   public function mca_update_avatars() {
@@ -115,22 +115,14 @@ class MCAvatar {
       $output .= '<div class="members-notice">' . $this->pagenotice . '</div>';
     }
     
-    $this->_mca_add_message('MCAvatarpage built successfully.');
+    $this->_mca_add_message('Avatar page built successfully.');
 
     return $output;
   }
-  
-  /**
-   * Returns the relative imagepath to the users avatar 
-   */
-  public function mca_get_user_avatarpath($username) {
-    return $this->avatarimagepath.'/'.$username.'.jpg';
-  }
 
   /**
-   * Returns an array with code-generated messages in the following layout:
-   * [NUMBER] => [WEIGHT]
-   *          => [MESSAGETEXT]
+   * Returns a array with code-generated messages in the following layout:
+   * [WEIGHT] => [NUMBER] => [MESSAGETEXT]
    * 
    * Possible weights are "notice", "warning" and "error".
    */
@@ -147,7 +139,7 @@ class MCAvatar {
     $members = array();
     $doc = new DOMDocument();
     $doc->load($this->membersxml);
-    
+
     foreach ($doc->getElementsByTagName('ugroup') as $ugroup) {
       $members[$ugroup->nodeValue] = array();
       foreach ($doc->getElementsByTagName($ugroup->nodeValue) as $user) {
@@ -161,7 +153,7 @@ class MCAvatar {
   }
 
   /**
-   * Gets the userskin from the minecraft servers and processes them into images for their respective faces, the settings for the output image can be changed by calling mca_set_image_settings().
+   * Gets the userskin from the minecraft servers and processes them into 64px x 64px images for their respective faces.
    *
    * @param $username
    *   (string) The username for wich to create the avatar.
@@ -173,8 +165,8 @@ class MCAvatar {
     try {
       //get the users skin from minecraft.net and say where it needs to go.
       $skinurl = 'http://minecraft.net/skin/' . $username . '.png';
-      $tmpimagepath = $_SERVER["DOCUMENT_ROOT"] . '/' . $this->tmppath . '/mca_tmp.png';
-      $prmimagepath = $_SERVER["DOCUMENT_ROOT"] . '/' . $this->avatarimagepath . '/' . $username . '.jpg';
+      $tmpimagepath = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/' . $this->tmppath . '/mca_tmp.png';
+      $prmimagepath = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/' . $this->avatarimagepath . '/' . $username . '.jpg';
       $file = false;
 
       //let's do this!
@@ -187,6 +179,8 @@ class MCAvatar {
         $canvas = imagecreatetruecolor($this->crop_width, $this->crop_height);
         $current_image = imagecreatefrompng($tmpimagepath);
         imagecopy($canvas, $current_image, 0, 0, $this->left, $this->top, 64, 32);
+        imagecopy($canvas, $current_image, 0, 0, $this->left + 32, $this->top, 64, 32);
+        
 
         //resize it!
         $canvasResized = imagecreate($this->new_width, $this->new_height);
@@ -209,7 +203,7 @@ class MCAvatar {
         return '/' . $this->avatarimagepath . '/' . $username . '.jpg';
       } else {
         //my code couldn't possibly go error, so it must be a user typo or a non-existent user.
-        $this->_mca_add_message('Unable to get skin for "' . $username . '"!', 'warning');
+        $this->_mca_add_message('Unable to get skin for "' . $username . '"!', 'error');
         return '';
       }
     } catch (Exception $e) {
