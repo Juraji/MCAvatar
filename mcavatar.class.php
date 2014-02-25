@@ -2,7 +2,7 @@
 
 /**
  * @file
- * MCAvatar 0.1a
+ * MCAvatar 0.6a
  * Written by Robin Kesseler
  */
 class MCAvatar {
@@ -114,7 +114,7 @@ class MCAvatar {
     if ($this->pagenotice != '') {
       $output .= '<div class="members-notice">' . $this->pagenotice . '</div>';
     }
-    
+
     $this->_mca_add_message('Avatar page built successfully.');
 
     return $output;
@@ -179,8 +179,11 @@ class MCAvatar {
         $canvas = imagecreatetruecolor($this->crop_width, $this->crop_height);
         $current_image = imagecreatefrompng($tmpimagepath);
         imagecopy($canvas, $current_image, 0, 0, $this->left, $this->top, 64, 32);
-        imagecopy($canvas, $current_image, 0, 0, $this->left + 32, $this->top, 64, 32);
         
+        if($this->_mca_check_transparent($current_image)){
+          imagecopy($canvas, $current_image, 0, 0, $this->left + 32, $this->top, 64, 32);
+        }
+
 
         //resize it!
         $canvasResized = imagecreate($this->new_width, $this->new_height);
@@ -224,6 +227,30 @@ class MCAvatar {
    */
   private function _mca_add_message($messagestring, $weight = 'notice') {
     array_push($this->messages, array('weight' => $weight, 'message' => $messagestring));
+  }
+
+  /**
+   * Check images vor transparency
+   * 
+   *  @param $im
+   *   (link resource) image link resource of the image to be checked
+   */
+  private function _mca_check_transparent($im) {
+
+    $width = imagesx($im); // Get the width of the image
+    $height = imagesy($im); // Get the height of the image
+    // We run the image pixel by pixel and as soon as we find a transparent pixel we stop and return true.
+    for ($i = 0; $i < $width; $i++) {
+      for ($j = 0; $j < $height; $j++) {
+        $rgba = imagecolorat($im, $i, $j);
+        if (($rgba & 0x7F000000) >> 24) {
+          return true;
+        }
+      }
+    }
+
+    // If we dont find any pixel the function will return false.
+    return false;
   }
 
 }
