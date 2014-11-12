@@ -164,7 +164,7 @@ class MCAvatar {
     $this->_mca_add_message('Attempting to create Usertile for "' . $username . '" ...');
     try {
       //get the users skin from minecraft.net and say where it needs to go.
-      $skinurl = 'http://minecraft.net/skin/' . $username . '.png';
+      $skinurl = 'http://skins.minecraft.net/MinecraftSkins/' . $username . '.png';
       $tmpimagepath = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/' . $this->tmppath . '/mca_tmp.png';
       $prmimagepath = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/' . $this->avatarimagepath . '/' . $username . '.jpg';
       $file = false;
@@ -230,7 +230,7 @@ class MCAvatar {
   }
 
   /**
-   * Check images vor transparency
+   * Check images for transparency
    * 
    *  @param $im
    *   (link resource) image link resource of the image to be checked
