@@ -1,8 +1,8 @@
 
 <?php
-include 'mcavatar.class.php';
+require 'mcavatar.class.php';
 
-$notice = 'This is an example of the MCAvatar-class.<br />
+$notice = 'This is an example of the MCAvatar class.<br />
   Edit the "members.xml" file in your favorite texteditor to modify the shown users<br />
   Use the "Readme.txt" te help getting you started.';
 
